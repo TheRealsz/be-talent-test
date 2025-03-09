@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #0500FF;
+    --color-blue-100: #EDEFFB;
+    --color-black-neutral: #1C1C1C;
+    --color-gray-20: #9E9E9E;
+    --color-gray-10: #DFDFDF;
+    --color-gray-5: #F5F5F5;
+    --color-gray: #F0F0F0;
+    --font-helvetica: 'Helvetica Neue', sans-serif;
+    --shadow-1: 0px 1px 2px 0px #00000033;
+    --shadow-2: 0px 2px 4px 0px #00000033;
+    --shadow-small: 0px 2px 8px 0px #00000033;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-helvetica);
+}
+
+h1 {
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
