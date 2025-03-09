@@ -12,7 +12,7 @@ export function ChevronUpIcon(props : React.SVGProps<SVGSVGElement>) {
     >
       <path
         d="M12.25 10.25L8 5.75l-4.25 4.5"
-        stroke="#fff"
+        stroke="#0500FF"
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
