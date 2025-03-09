@@ -4,9 +4,12 @@ import { SearchForm } from "./components/search-form"
 import api from "./services/api"
 import { IEmployee } from "./types/employee"
 import { AccordionEmployee } from "./components/accordion-employee"
+import { LoadingSkeleton } from "./components/loading-skeleton"
+import { TableEmployee } from "./components/table-employee"
+import { AccordionHeaderEmployee } from "./components/accordion-header-employee"
 
 function App() {
-  const [employees, setEmployees] = useState<IEmployee[] | []>([])
+  const [employees, setEmployees] = useState<IEmployee[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
   async function getEmployees() {
@@ -16,7 +19,7 @@ function App() {
       setEmployees(response.data)
     }
     catch (error) {
-      console.error(error)
+      console.error('Erro ao buscar funcionários:', error);
     } finally {
       setIsLoading(false)
     }
@@ -27,10 +30,10 @@ function App() {
   }, [])
 
   return (
-    <div className="flex flex-col bg-gray h-full">
+    <div className="flex flex-col bg-gray h-screen">
       <Header />
-      <main className="flex-1 flex flex-col gap-5 p-6">
-        <div className="flex flex-col gap-6">
+      <main className="flex-1 flex flex-col gap-5 p-6 lg:px-8 lg:py-11 lg:gap-11">
+        <div className="flex flex-col gap-6 lg:flex-row lg:justify-between lg:items-center">
           <h1>
             Funcionários
           </h1>
@@ -38,20 +41,10 @@ function App() {
         </div>
         {
           isLoading ? (
-            <div className="flex-1 bg-gray-300 animate-pulse rounded-lg" />
+            <LoadingSkeleton />
           ) : (
             <div className="bg-white rounded-lg w-full overflow-hidden">
-              <header className="w-full flex items-center p-3.5 bg-primary shadow-1 justify-between">
-                <div className="flex items-center gap-6">
-                  <span className="text-white font-helvetica">
-                    FOTO
-                  </span>
-                  <span className="text-white font-helvetica">
-                    NOME
-                  </span>
-                </div>
-                <div className="w-2 h-2 rounded-full bg-white" />
-              </header>
+              <AccordionHeaderEmployee />
               {
                 employees.map((employee) => (
                   <AccordionEmployee
@@ -60,6 +53,9 @@ function App() {
                   />
                 ))
               }
+              <TableEmployee
+                employees={employees}
+              />
             </div>
           )
         }

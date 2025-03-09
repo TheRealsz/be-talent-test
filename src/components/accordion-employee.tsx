@@ -12,7 +12,7 @@ export function AccordionEmployee({ name, admission_date, id, image, job, phone 
         <details
             open={isOpen}
             onToggle={() => setIsOpen(!isOpen)}
-            className="w-full bg-white shadow-1"
+            className="w-full bg-white shadow-1 lg:hidden"
             name={`accordion-${id}`}
         >
             <summary className="flex items-center justify-between py-3.5 px-4 cursor-pointer shadow-1">
