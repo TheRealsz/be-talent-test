@@ -10,6 +10,8 @@ import { AccordionHeaderEmployee } from "./components/accordion-header-employee"
 
 function App() {
   const [employees, setEmployees] = useState<IEmployee[]>([])
+  const [search, setSearch] = useState('')
+  const [filteredEmployees, setFilteredEmployees] = useState<IEmployee[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
   async function getEmployees() {
@@ -29,6 +31,17 @@ function App() {
     getEmployees()
   }, [])
 
+
+  useEffect(() => {
+    const filtered = employees.filter((employee) =>
+      [employee.name, employee.job, employee.phone].some((field) =>
+        field.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+    setFilteredEmployees(filtered);
+  }, [search, employees]);
+
+
   return (
     <div className="flex flex-col bg-gray h-screen">
       <Header />
@@ -37,7 +50,10 @@ function App() {
           <h1>
             Funcionários
           </h1>
-          <SearchForm />
+          <SearchForm
+            search={search}
+            setSearch={setSearch}
+          />
         </div>
         {
           isLoading ? (
@@ -46,15 +62,24 @@ function App() {
             <div className="bg-white rounded-lg w-full overflow-hidden">
               <AccordionHeaderEmployee />
               {
-                employees.map((employee) => (
-                  <AccordionEmployee
-                    key={employee.id}
-                    {...employee}
-                  />
-                ))
+                filteredEmployees ? (
+                  filteredEmployees.map((employee) => (
+                    <AccordionEmployee
+                      key={employee.id}
+                      {...employee}
+                    />
+                  ))
+                ) : (
+                  employees.map((employee) => (
+                    <AccordionEmployee
+                      key={employee.id}
+                      {...employee}
+                    />
+                  ))
+                )
               }
               <TableEmployee
-                employees={employees}
+                employees={filteredEmployees ? filteredEmployees : employees}
               />
             </div>
           )
