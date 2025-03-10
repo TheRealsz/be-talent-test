@@ -1,54 +1,87 @@
-# React + TypeScript + Vite
+# Teste Técnico Front-end BeTalent
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém a solução do desafio técnico para a vaga de Front-end na BeTalent. O objetivo do projeto é construir uma visualização de uma tabela responsiva que exibe dados de funcionários consumidos de uma API simulada usando json-server.
 
-Currently, two official plugins are available:
+## 🛠 Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React.js + TypeScript
+- TailwindCSS
+- Json-server (para simular a API)
 
-## Expanding the ESLint configuration
+## 📌 Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Exibição de uma tabela responsiva com as colunas:
+  - Imagem do funcionário
+  - Nome
+  - Cargo
+  - Data de admissão
+  - Telefone
+- Campo de pesquisa para filtrar os dados por nome, cargo ou telefone
+- Formatação de datas e números de telefone no front-end
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📂 Estrutura do Projeto
+
+```
+📁 src
+│-- 📂 assets         # Arquivos de imagens ou icones
+│-- 📂 components     # Componentes reutilizáveis
+│-- 📂 services       # Configuração da API
+│-- 📂 types          # Interfaces de dados
+│-- 📂 utils          # Funções auxiliares e de formatação
+│-- App.tsx           # Pagina principal
+│-- main.tsx          # Ponto de entrada da aplicação
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Como Rodar o Projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. Pré-requisitos
+Antes de começar, certifique-se de ter instalado em sua máquina:
+- **Node.js** (v16+ ou LTS recomendado)
+- **Git**
+- **Yarn** ou **npm**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 2. Clonar o Repositório
+```bash
+git https://github.com/TheRealsz/be-talent-test
+cd be-talent-test
 ```
+
+### 3. Instalar Dependências
+```bash
+npm install  # ou yarn install
+```
+### 4. Configurar Variáveis de Ambiente
+Crie um arquivo `.env.local` na raiz do projeto e adicione a seguinte variável:
+
+```env
+
+VITE_API_URL=http://localhost:3000
+
+```
+
+Certifique-se de que a URL corresponde ao endereço onde o json-server está rodando.
+
+### 5. Iniciar o Servidor Fake (json-server)
+Seguir instruções do link a seguir: https://github.com/BeMobile/teste-pratico-frontend
+
+### 6. Iniciar o Projeto
+```bash
+npm run dev  # ou yarn dev
+```
+
+A aplicação estará disponível em `http://localhost:5173/`.
+
+## 🎯 Critérios Atendidos
+✅ **Lógica de programação organizada**
+✅ **Código bem estruturado**
+✅ **Estilização com TailwindCSS seguindo o mockup**
+✅ **Filtro de pesquisa funcional**
+✅ **README documentado com instruções claras**
+✅ **Uso de TypeScript para melhor tipagem e segurança**
+
+---
+
+Qualquer dúvida ou sugestão, fique à vontade para entrar em contato!
+
+🖥️ Desenvolvido por **Robson Diego** 🚀
+
