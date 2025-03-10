@@ -55,7 +55,7 @@ Crie um arquivo `.env.local` na raiz do projeto e adicione a seguinte variável:
 
 ```env
 
-VITE_API_URL=http://localhost:3000
+VITE_API_URL="http://localhost:3000"
 
 ```
 
@@ -72,12 +72,12 @@ npm run dev  # ou yarn dev
 A aplicação estará disponível em `http://localhost:5173/`.
 
 ## 🎯 Critérios Atendidos
-✅ **Lógica de programação organizada**
-✅ **Código bem estruturado**
-✅ **Estilização com TailwindCSS seguindo o mockup**
-✅ **Filtro de pesquisa funcional**
-✅ **README documentado com instruções claras**
-✅ **Uso de TypeScript para melhor tipagem e segurança**
+- ✅ **Lógica de programação organizada**
+- ✅ **Código bem estruturado**
+- ✅ **Estilização com TailwindCSS seguindo o mockup**
+- ✅ **Filtro de pesquisa funcional**
+- ✅ **README documentado com instruções claras**
+- ✅ **Uso de TypeScript para melhor tipagem e segurança**
 
 ---
 
